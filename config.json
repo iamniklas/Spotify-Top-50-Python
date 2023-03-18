@@ -1,0 +1,7 @@
+{
+    "client_id": "your_client_id_here",
+    "client_secret": "your_client_secret_here",
+    "redirect_uri": "your_redirect_uri_here",
+    "playlist_identifier": "your_target_playlist_id_here",
+    "song_limit": 50
+}

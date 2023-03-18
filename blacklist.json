@@ -1,0 +1,6 @@
+{
+    "allow_explicit_content": true,
+    "blocked_songs": [
+        {"name": "Just for your orientation. Can be empty", "id": "some_song_id"}
+    ]
+}
