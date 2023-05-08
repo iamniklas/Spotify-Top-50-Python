@@ -3,5 +3,32 @@
     "client_secret": "your_client_secret_here",
     "redirect_uri": "your_redirect_uri_here",
     "playlist_identifier": "your_target_playlist_id_here",
-    "song_limit": 50
+    "song_limit": 50,
+
+    "desc_variants": [
+        {"hour": 0, "text": ""},
+        {"hour": 1, "text": ""},
+        {"hour": 2, "text": "Go to sleep!"},
+        {"hour": 3, "text": "Seriously, go to sleep!"},
+        {"hour": 4, "text": "Please... Sleep now"},
+        {"hour": 5, "text": ""},
+        {"hour": 6, "text": "Good Morning!"},
+        {"hour": 7, "text": "Have a splendid day!"},
+        {"hour": 8, "text": ""},
+        {"hour": 9, "text": ""},
+        {"hour": 10, "text": ""},
+        {"hour": 11, "text": ""},
+        {"hour": 12, "text": ""},
+        {"hour": 13, "text": ""},
+        {"hour": 14, "text": ""},
+        {"hour": 15, "text": ""},
+        {"hour": 16, "text": ""},
+        {"hour": 17, "text": ""},
+        {"hour": 18, "text": ""},
+        {"hour": 19, "text": ""},
+        {"hour": 20, "text": "How's been your day?"},
+        {"hour": 21, "text": ""},
+        {"hour": 22, "text": ""},
+        {"hour": 23, "text": ""}
+    ]
 }
