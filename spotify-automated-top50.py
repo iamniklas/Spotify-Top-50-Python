@@ -3,6 +3,7 @@ import pytz
 from spotipy.oauth2 import SpotifyOAuth
 import datetime
 import json
+import random
 
 scope = "user-top-read user-read-private user-read-email playlist-modify-public playlist-modify-private"
 
@@ -52,9 +53,6 @@ def get_user_top_tracks():
     blocked = 0
     blacklist = get_blacklist()
 
-    # if not blacklist["allow_explicit_content"]:
-    #     results = [track for track in results if not track["explicit"]]
-
     for item in results['items']:
         if not blacklist["allow_explicit_content"] and item['explicit']:
             blocked += 1
@@ -95,13 +93,23 @@ def update_playlist(playlist_id, tracks):
 
     blocked = song_limit - len(tracks)
     description = ""
-    if blocked > 1:
-        description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS // {blocked} Songs Hidden'
-    elif blocked == 1:
-        description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS // {blocked} Song Hidden'
-    else:
-        description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS'
 
+    if use_special_description:
+        special_text = config["desc_variants"][int(now.strftime("%H"))]["text"]
+        if blocked > 1:
+            description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // {special_text} // {blocked} Songs Hidden'
+        elif blocked == 1:
+            description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // {special_text} // {blocked} Song Hidden'
+        else:
+            description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // {special_text}'
+    else:
+        if blocked > 1:
+            description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS // {blocked} Songs Hidden'
+        elif blocked == 1:
+            description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS // {blocked} Song Hidden'
+        else:
+            description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS'
+    
     if not get_blacklist()["allow_explicit_content"]:
         description += " // Explicit Content Blocked"
 
