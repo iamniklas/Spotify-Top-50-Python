@@ -95,7 +95,7 @@ def update_playlist(playlist_id, tracks):
 
     blocked = song_limit - len(tracks)
     description = ""
-    if blocked > 0:
+    if blocked > 1:
         description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS // {blocked} Songs Hidden'
     elif blocked == 1:
         description = f'Update: {month} {day} {year} {time} (Europe/Berlin) // Built Using SpotiPy And Ubuntu OS // {blocked} Song Hidden'
